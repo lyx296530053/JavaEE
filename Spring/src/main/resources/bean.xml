@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--<bean id="runner" class="org.apache.commons.dbutils.QueryRunner">-->
+    <!--<constructor-arg name="ds" ref="dataSource"></constructor-arg>-->
+    <!--</bean>-->
+    <!--<bean id="accountService" class="cn.lyx.Service.Imply.AccountImply">-->
+    <!--<property name="iAccountDao" ref="accountDao"></property>-->
+    <!--</bean>-->
+    <!--<bean id="accountDao" class="cn.lyx.dao.Impl.AccountDaoImply">-->
+    <!--<property name="runner" ref="runner"></property>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="accountImplyAOPTest" class="cn.lyx.Service.Imply.AccountImplyAOPTest" ></bean>-->
+    <!--<bean id="logger" class="cn.lyx.Utils.PrintfLog"></bean>-->
+    <!--<aop:config>-->
+    <!--<aop:aspect id="logAdvice" ref="logger">-->
+    <!--<aop:before method="printfLog" pointcut="execution(* cn.lyx.Service.Imply.*.*(..))"></aop:before>-->
+    <!--</aop:aspect>-->
+    <!--</aop:config>-->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>-->
+    <!--<bean id="jdbcTemplateServiceImply" class="cn.lyx.Service.Imply.JdbcTempleSeriviceImply">-->
+    <!--<property name="iAccountDao" ref="jdbcTemplateImply"></property>-->
+    <!--</bean>-->
+    <!--<bean id="jdbcTemplateImply" class="cn.lyx.dao.Impl.JdbcTemplateImply">-->
+    <!--<property name="jdbcTemplate" ref="jdbcTemplate"></property>-->
+    <!--</bean>-->
+    <!--<context:component-scan base-package="cn.lyx"></context:component-scan>-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="jdbc:mysql://localhost:3306/users"></property>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="2038118"></property>
+    </bean>
+    <!--<bean id="accountServiceImply" class="cn.lyx.Service.Imply.AccountServiceImpl">-->
+    <!--<property name="accountDao" ref="accountDaoImply"></property>-->
+    <!--</bean>-->
+    <!--<bean id="accountDaoImply" class="cn.lyx.dao.Impl.AccountDaoImply">-->
+    <!--<property name="dataSource" ref="dataSource"></property>-->
+    <!--</bean>-->
+    <!--<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+    <!--<property name="dataSource" ref="dataSource"></property>-->
+    <!--</bean>-->
+    <!--<tx:annotation-driven transaction-manager="dataSourceTransactionManager"></tx:annotation-driven>-->
+    <!--<aop:config>-->
+    <!--<aop:pointcut id="pt1" expression="execution(* cn.lyx.Service.Imply.*.*(..))"></aop:pointcut>-->
+    <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="pt1"></aop:advisor>-->
+    <!--</aop:config>-->
+    <!--<tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">-->
+    <!--<tx:attributes>-->
+    <!--<tx:method name="transfer"  propagation="REQUIRED" read-only="false"/>-->
+    <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+    <!--<bean id="dateFormat" class="java.text.SimpleDateFormat">-->
+    <!--<constructor-arg value="yyyy-MM-dd"></constructor-arg>-->
+    <!--</bean>-->
+    <!--<bean id="date" factory-bean="dateFormat" factory-method="parse">-->
+    <!--<constructor-arg value="1997-1-1"></constructor-arg>-->
+    <!--</bean>-->
+    <!--<bean id="user" class="cn.lyx.daomain.User" scope="singleton">-->
+    <!--<property name="name" value="lyx"></property>-->
+    <!--<property name="age" value="20"></property>-->
+    <!--&lt;!&ndash;<property name="birthday" ref="date"></property>&ndash;&gt;-->
+    <!--<property name="list" >-->
+    <!--<list>-->
+    <!--<value>1</value>-->
+    <!--<value>2</value>-->
+    <!--<value>3</value>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--<property name="set">-->
+    <!--<set>-->
+    <!--<value>a</value>-->
+    <!--<value>b</value>-->
+    <!--<value>c</value>-->
+    <!--</set>-->
+    <!--</property>-->
+    <!--<property name="map">-->
+    <!--<map>-->
+    <!--<entry key="a" value="1"></entry>-->
+    <!--<entry key="b" value="2"></entry>-->
+    <!--<entry key="c" value="3"></entry>-->
+    <!--</map>-->
+    <!--</property>-->
+    <!--<property name="properties">-->
+    <!--<props>-->
+    <!--<prop key="aa" >11</prop>-->
+    <!--<prop key="bb">22</prop>-->
+    <!--<prop key="cc">33</prop>-->
+    <!--</props>-->
+    <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="proxyGet" factory-bean="beanFactory" factory-method="agetIAccount"></bean>-->
+    <!--<bean id="beanFactory" class="cn.lyx.factory.BeanFactory">-->
+        <!--<property name="account" ref="accountImply"></property>-->
+        <!--<property name="manager" ref="manager"></property>-->
+    <!--</bean>-->
+    <!--<bean id="manager" class="cn.lyx.Utils.Manager">-->
+        <!--<property name="connectionUtils" ref="connectionUtils"></property>-->
+    <!--</bean>-->
+    <!--<bean id="connectionUtils" class="cn.lyx.Utils.ConnectionUtils">-->
+        <!--<property name="dataSource" ref="dataSource"></property>-->
+    <!--</bean>-->
+    <!--<bean id="accountImply" class="cn.lyx.Service.Imply.AccountImply">-->
+        <!--<property name="iAccountDao" ref="accountDaoImply"></property>-->
+    <!--</bean>-->
+    <!--<bean id="accountDaoImply" class="cn.lyx.dao.Impl.AccountDaoImply">-->
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"></property>-->
+    <!--</bean>-->
+    <!--<aop:config >-->
+        <!--<aop:pointcut id="pt1" expression="execution(* cn.lyx.Service.Imply.*.*(..))"></aop:pointcut>-->
+        <!--<aop:aspect id="txAdvice" ref="manager">-->
+            <!--<aop:before method="beginTransaction" pointcut-ref="pt1"></aop:before>-->
+            <!--<aop:after-returning method="commit" pointcut-ref="pt1"></aop:after-returning>-->
+            <!--<aop:after-throwing method="rollback" pointcut-ref="pt1"></aop:after-throwing>-->
+            <!--<aop:after method="relese" pointcut-ref="pt1"></aop:after>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+</beans>

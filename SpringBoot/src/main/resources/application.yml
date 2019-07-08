@@ -1,0 +1,13 @@
+server:
+   port: 8081
+person:
+  lastname: lyx
+  age: 18
+  boss: true
+  maps: {k1: a,k2: b}
+  lists: [1,2,3]
+  birth: 1996/1/1
+---
+
+server:
+  port:
